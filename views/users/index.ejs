@@ -1,0 +1,11 @@
+<%- include('../partials/header') %>
+  <h1>Grams Index</h1>
+  <ul>
+    <% for (let gram of grams) {%>
+      <li>
+        <img src="<%= gram.srcUrl %> ">
+        <p><%= gram.description %> </p>
+      </li>
+    <% } %> 
+  </ul>
+<%- include('../partials/footer') %>

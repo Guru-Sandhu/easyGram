@@ -1,6 +1,7 @@
 const express = require('express')
 const logger = require('morgan')
 const userRouter = require('./routes/userProfile')
+const gramsRouter = require('./routes/grams')
 
 const app = express()
 
@@ -11,14 +12,11 @@ app.set('views', 'views')
 
 app.use(express.urlencoded({ extended: true }))
 app.use('/users', userRouter)
+app.use('/grams', gramsRouter)
 
 app.get('/', (req, res) => {
   res.render('welcome')
 })
-
-// app.get('/users', (req, res) => {
-//   res.render('../routes/userProfile')
-// })
 
 const PORT = 4000
 const DOMAIN = 'localhost'
