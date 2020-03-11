@@ -1,27 +1,11 @@
 const express = require('express')
-const knex = require('../db/client')
+const { grams } = require('../controllers')
 const router = express.Router()
 
-router.get('/', (req, res) => {
-  knex.select('*').from('grams')
-    .then(grams => {
-      res.render('users/index', { grams })
-    })
-})
+router.get('/', grams.index)
 
-router.post('/', (req, res) => {
-  const { srcUrl, description } = req.body
-  knex.insert({ srcUrl, description }).into('grams')
-    .then(() => {
-      res.redirect('/grams')
-    })
-    .catch(() => {
-      res.render('users/newgrams')
-    })
-})
+router.post('/', grams.insert)
 
-router.get('/newgrams', (req, res) => {
-  res.render('users/newgrams')
-})
+router.get('/newgrams', grams.new)
 
 module.exports = router
