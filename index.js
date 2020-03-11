@@ -6,6 +6,7 @@ const gramsRouter = require('./routes/grams')
 const app = express()
 
 app.use(logger('dev'))
+app.use(express.static('public'))
 
 app.set('view engine', 'ejs')
 app.set('views', 'views')
