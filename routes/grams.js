@@ -9,4 +9,19 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+  const { srcUrl, description } = req.body
+  knex.insert({ srcUrl, description }).into('grams')
+    .then(() => {
+      res.redirect('/grams')
+    })
+    .catch(() => {
+      res.render('users/newgrams')
+    })
+})
+
+router.get('/newgrams', (req, res) => {
+  res.render('users/newgrams')
+})
+
 module.exports = router

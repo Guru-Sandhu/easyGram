@@ -1,0 +1,14 @@
+<%- include('../partials/header') %> 
+  <h1>New Grams Page</h1>
+  <form action="/grams" method="POST">
+    <div>
+      <label for="srcUrl">ImgLink</label>
+      <input type="text" name="srcUrl">
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <input type="textarea" name="description">
+    </div>
+    <input type="submit">
+  </form>
+<%- include('../partials/footer') %>
