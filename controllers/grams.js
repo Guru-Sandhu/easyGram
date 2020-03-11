@@ -8,8 +8,8 @@ module.exports = {
       })
   },
   insert: (req, res) => {
-    const { srcUrl, description } = req.body
-    gram.insert({ srcUrl, description })
+    const { srcUrl, description, price } = req.body
+    gram.insert({ srcUrl, description, price })
       .then(gram => {
         res.send(gram)
       })

@@ -7,8 +7,8 @@ module.exports = {
         return grams
       })
   },
-  insert: ({ srcUrl, description }) => {
-    return knex.insert({ srcUrl, description }).into('grams')
+  insert: ({ srcUrl, description, price }) => {
+    return knex.insert({ srcUrl, description, price }).into('grams')
       .returning('*')
       .then(newGram => {
         return newGram

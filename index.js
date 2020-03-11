@@ -2,6 +2,7 @@ const express = require('express')
 const logger = require('morgan')
 const userRouter = require('./routes/userProfile')
 const gramsRouter = require('./routes/grams')
+const noPrice = require('./middleware/noPrice')
 
 const app = express()
 
@@ -12,6 +13,7 @@ app.set('view engine', 'ejs')
 app.set('views', 'views')
 
 app.use(express.urlencoded({ extended: true }))
+app.use(noPrice)
 app.use('/users', userRouter)
 app.use('/grams', gramsRouter)
 
