@@ -4,7 +4,7 @@ module.exports = {
   index: (req, res) => {
     gram.all()
       .then(grams => {
-        res.render('users/index', { grams })
+        res.render('grams/index', { grams })
       })
   },
   insert: (req, res) => {
@@ -15,6 +15,17 @@ module.exports = {
       })
   },
   new: (req, res) => {
-    res.render('users/newgrams')
+    res.render('grams/newgrams')
+  },
+  show: (req, res) => {
+    const { id } = req.params
+    gram.one(parseInt(id))
+      .then(grams => {
+        if (grams.length > 0) {
+          res.render('grams/show', { grams: grams })
+        } else {
+          res.send(`No gram with ID:${id}`)
+        }
+      })
   }
 }

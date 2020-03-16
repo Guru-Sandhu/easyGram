@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+  <h1>Grams Index</h1>
+  <ul>
+    <% for (let gram of grams)  {%>
+      <div class="card" style="width: 18rem;">
+        <img src="<%= gram.srcUrl %>" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Price:- <%= gram.price %></h5>
+          <p class="card-text"><%= gram.description %></p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    <% } %> 
+  </ul>
+<%- include('../partials/footer') %>

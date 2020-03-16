@@ -8,4 +8,6 @@ router.post('/', grams.insert)
 
 router.get('/newgrams', grams.new)
 
+router.get('/:id', grams.show)
+
 module.exports = router

@@ -7,7 +7,7 @@ function noPrice (req, res, next) {
     }
   })
   if (noMoney) {
-    return res.send('Please fill the Whole form')
+    return res.render('users/newgrams', { errors: ['Fill the Whole Form Please'] })
   }
   next()
 }

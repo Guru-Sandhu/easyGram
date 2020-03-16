@@ -1,5 +1,10 @@
 <%- include('../partials/header') %> 
   <h1>New Grams Page</h1>
+  <% if (locals.errors) { %> 
+    <% for (let error of errors) { %> 
+      <h4 style="color: red;"><%= error %></h2>
+    <% } %>
+  <% } %>
   <form action="/grams" method="POST">
     <div>
       <label for="srcUrl">ImgLink</label>
