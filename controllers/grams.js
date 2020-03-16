@@ -22,10 +22,20 @@ module.exports = {
     gram.one(parseInt(id))
       .then(grams => {
         if (grams.length > 0) {
-          res.render('grams/show', { grams: grams })
+          res.render('grams/show', { gram: grams[0] })
         } else {
           res.send(`No gram with ID:${id}`)
         }
+      })
+  },
+  delete: (req, res) => {
+    const { id } = req.params
+    gram.delete(id)
+      .then(() => {
+        res.redirect('/grams')
+      })
+      .catch(e => {
+        console.log(e)
       })
   }
 }

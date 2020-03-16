@@ -1,15 +1,13 @@
 <%- include('../partials/header') %>
-  <h1>Grams Index</h1>
-  <ul>
-    <% for (let gram of grams)  {%>
-      <div class="card" style="width: 18rem;">
-        <img src="<%= gram.srcUrl %>" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">Price:- <%= gram.price %></h5>
-          <p class="card-text"><%= gram.description %></p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    <% } %> 
-  </ul>
+<h1>Grams Show Page</h1>
+<img src="<%= gram.srcUrl %>">
+<h3><%= gram.id %>: <%= gram.price %>  </h3>
+<p><%= gram.description %> </p>
+<hr>
+<p><%= gram.created_at %> </p>|<p><%= gram.updated_at %> </p>
+<form action="/grams/<%= gram.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input class="btn btn-danger" type="submit" value="DELETE">
+</form>
+<%= console.log(gram) %> 
 <%- include('../partials/footer') %>

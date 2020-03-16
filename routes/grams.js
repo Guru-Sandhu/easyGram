@@ -10,4 +10,6 @@ router.get('/newgrams', grams.new)
 
 router.get('/:id', grams.show)
 
+router.delete('/:id', grams.delete)
+
 module.exports = router
