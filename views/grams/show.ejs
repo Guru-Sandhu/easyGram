@@ -1,13 +1,15 @@
 <%- include('../partials/header') %>
-<h1>Grams Show Page</h1>
-<img src="<%= gram.srcUrl %>">
-<h3><%= gram.id %>: <%= gram.price %>  </h3>
-<p><%= gram.description %> </p>
-<hr>
-<p><%= gram.created_at %> </p>|<p><%= gram.updated_at %> </p>
-<form action="/grams/<%= gram.id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input class="btn btn-danger" type="submit" value="DELETE">
-</form>
+<div class="container">
+  <h1>Grams Show Page</h1>
+  <img src="<%= gram.srcUrl %>">
+  <h3><%= gram.id %>: <%= gram.price %>  </h3>
+  <p><%= gram.description %> </p>
+  <hr>
+  <p><%= gram.created_at %> </p>|<p><%= gram.updated_at %> </p>
+  <form action="/grams/<%= gram.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input class="btn btn-danger" type="submit" value="DELETE">
+  </form>
+</div>
 <%= console.log(gram) %> 
 <%- include('../partials/footer') %>
